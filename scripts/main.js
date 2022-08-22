@@ -5,3 +5,7 @@ connectToTheButton("ozil", "fourthPlayer")
 connectToTheButton("muller", "fifthPlayer")
 connectToTheButton("dimaria", "sixthPlayer")
 
+//per player calculatin event handeler and claback function.
+document.getElementById("subCalculation").addEventListener("click", function () {
+    perPlayerCos("perPlayerCost");
+});

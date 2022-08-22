@@ -35,15 +35,27 @@ function getPlayerName(nameId, buttonId) {
 
 
 
-document.getElementById("subCalculation").addEventListener("click", function () {
-    const playerCostString = document.getElementById("perPlayerCost");
+//per player cost claculation .
+function perPlayerCos(perPlayerCalculation) {
+    const playerCostString = document.getElementById(perPlayerCalculation);
     const playerCost = parseFloat(playerCostString.value);
     const playerCount = selectedPlayer.length;
     const playerExpenses = playerCount * playerCost;
     const ExpensesAmount = document.getElementById("expensesAmount");
     ExpensesAmount.innerText = playerExpenses;
+    return playerExpenses;
+};
+
+
+//over-all total cost calculation.
+document.getElementById("totalCalculatin").addEventListener("click", function () {
+    const managerCostString = document.getElementById("managerCost");
+    const managerCost = parseFloat(managerCostString.value);
+    const coachCostString = document.getElementById("coachCost");
+    const coachCost = parseFloat(coachCostString.value);
+    const playerExpenses = perPlayerCos("perPlayerCost");
+    const totalCost = managerCost + coachCost + playerExpenses;
+    const totalCostDisplay = document.getElementById("totalCost");
+    totalCostDisplay.innerText = totalCost;
 });
-
-
-
 
