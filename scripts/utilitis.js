@@ -44,10 +44,17 @@ function perPlayerCos(perPlayerCalculation) {
         return;
     } else {
         const playerCount = selectedPlayer.length;
-        const playerExpenses = playerCount * playerCost;
-        const ExpensesAmount = document.getElementById("expensesAmount");
-        ExpensesAmount.innerText = playerExpenses;
-        return playerExpenses;
+        if (playerCount > 5) {
+            const playerExpenses = 5 * playerCost;
+            const ExpensesAmount = document.getElementById("expensesAmount");
+            ExpensesAmount.innerText = playerExpenses;
+            return playerExpenses;
+        } else {
+            const playerExpenses = playerCount * playerCost;
+            const ExpensesAmount = document.getElementById("expensesAmount");
+            ExpensesAmount.innerText = playerExpenses;
+            return playerExpenses;
+        }
     }
 };
 
