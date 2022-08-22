@@ -5,5 +5,3 @@ connectToTheButton("ozil", "fourthPlayer")
 connectToTheButton("muller", "fifthPlayer")
 connectToTheButton("dimaria", "sixthPlayer")
 
-
-
