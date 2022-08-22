@@ -38,24 +38,34 @@ function getPlayerName(nameId, buttonId) {
 //per player cost claculation .
 function perPlayerCos(perPlayerCalculation) {
     const playerCostString = document.getElementById(perPlayerCalculation);
-    const playerCost = parseFloat(playerCostString.value);
-    const playerCount = selectedPlayer.length;
-    const playerExpenses = playerCount * playerCost;
-    const ExpensesAmount = document.getElementById("expensesAmount");
-    ExpensesAmount.innerText = playerExpenses;
-    return playerExpenses;
+    const playerCost = Math.abs(parseFloat(playerCostString.value));
+    if (isNaN(playerCost)) {
+        alert('invalid input')
+        return;
+    } else {
+        const playerCount = selectedPlayer.length;
+        const playerExpenses = playerCount * playerCost;
+        const ExpensesAmount = document.getElementById("expensesAmount");
+        ExpensesAmount.innerText = playerExpenses;
+        return playerExpenses;
+    }
 };
 
 
 //over-all total cost calculation.
 document.getElementById("totalCalculatin").addEventListener("click", function () {
     const managerCostString = document.getElementById("managerCost");
-    const managerCost = parseFloat(managerCostString.value);
+    const managerCost = Math.abs(parseFloat(managerCostString.value));
     const coachCostString = document.getElementById("coachCost");
-    const coachCost = parseFloat(coachCostString.value);
-    const playerExpenses = perPlayerCos("perPlayerCost");
-    const totalCost = managerCost + coachCost + playerExpenses;
-    const totalCostDisplay = document.getElementById("totalCost");
-    totalCostDisplay.innerText = totalCost;
+    const coachCost = Math.abs(parseFloat(coachCostString.value));
+    if (isNaN(managerCost) || isNaN(coachCost)) {
+        alert("invalid input");
+        return;
+    } else {
+        const playerExpenses = perPlayerCos("perPlayerCost");
+        const totalCost = managerCost + coachCost + playerExpenses;
+        const totalCostDisplay = document.getElementById("totalCost");
+        totalCostDisplay.innerText = totalCost;
+    }
 });
 
